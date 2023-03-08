@@ -5,7 +5,7 @@ from .models import *
 
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email', 'address']
+    list_display = [ 'user', 'name', 'email', 'address']
     
 @admin.register(Device_Return)
 class EmployeeAdmin(admin.ModelAdmin):

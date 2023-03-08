@@ -11,6 +11,7 @@ class Device(BaseModel):
     device_image = models.ImageField(upload_to='device')
     
     
+    
     def __str__(self):
         return self.name
 

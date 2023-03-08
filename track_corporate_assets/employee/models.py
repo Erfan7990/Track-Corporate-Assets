@@ -22,15 +22,18 @@ class Employee(BaseModel):
     is_paid = models.BooleanField(default=False)
     
     def __str__(self):
-        return self.name
+        return self.user.username
     
 
-
+PAYMENT_METHOD = (
+    
+    ('SSLcommerz', 'SSLcommerz'),
+)
 class Device_Return(BaseModel):
     employee_name = models.CharField(max_length=100, null=True, blank=True)
     device_name = models.ForeignKey(Device, on_delete=models.CASCADE)
     description = models.TextField(max_length=500, null=True, blank=True)
-    
+    payment_method = models.CharField(max_length= 30, choices=PAYMENT_METHOD, default=PAYMENT_METHOD[0])
     
     def __str__(self):
         return self.employee_name

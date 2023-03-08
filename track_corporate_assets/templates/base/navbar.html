@@ -1,0 +1,90 @@
+
+  <!-- Topbar Start -->
+    <ul>
+        <li><a href=" {% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'add_employee' %}">Add Employee</a></li>
+        <li><a href="{% url 'add_devices' %}">Add Devices</a></li>
+        {% if request.user.is_authenticated %}
+            <li><a href="#">{{request.user}}</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'signin' %}">SignIn</a></li>
+            <li><a href="{% url 'signup' %}">SignUp</a></li>
+        {% endif %}
+
+    </ul>
+
+{% comment %} <div class="container-fluid">
+    <div class="row bg-secondary py-2 px-xl-5">
+        <div class="col-lg-6 d-none d-lg-block">
+            <div class="d-inline-flex align-items-center">
+                <a class="text-dark" href="">FAQs</a>
+                <span class="text-muted px-2">|</span>
+                <a class="text-dark" href="">Help</a>
+                <span class="text-muted px-2">|</span>
+                <a class="text-dark" href="">Support</a>
+            </div>
+        </div>
+        <div class="col-lg-6 text-center text-lg-right">
+            <div class="d-inline-flex align-items-center">
+                <a class="text-dark px-2" href="">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="text-dark px-2" href="">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="text-dark px-2" href="">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a class="text-dark px-2" href="">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a class="text-dark pl-2" href="">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-center py-3 px-xl-5">
+        <div class="col-lg-3 d-none d-lg-block">
+            <a href="{% url 'index' %}" class="text-decoration-none">
+                <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border">My</span>Shop</h1>
+            </a>
+        </div>
+        <div class="col-lg-6 col-6 text-left">
+            <form action="{% url 'search' %}" method="get">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for products" name="query" id="query">
+                    <div class="input-group-append">
+                        <button class="input-group-text bg-transparent text-primary">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-3 col-6 text-right">
+            <a href="" class="btn border">
+                <i class="fas fa-heart text-primary"></i>
+                <span class="badge">0</span>
+            </a>
+            <a href="{% url 'card_item' %}" class="btn border">
+                <i class="fas fa-shopping-cart text-primary"></i>
+                {% if request.user.is_authenticated  %}
+                <span class="badge">{{ request.user|cart_counter }}</span>
+                {% else %}
+                <span class="badge">{{  cart_counter }}</span>
+                {% endif %}
+            </a>
+                {% if request.user.is_authenticated  %}
+                <a href="{% url 'profile' %}" class="btn border" >{{user.username}} </a>
+                <a href="{% url 'logout' %}" class="btn border" >Logout </a>
+                {% else %}
+                <a href="{% url 'login' %}" class="btn border">Login</a>
+                <a href="{% url 'registration' %}" class="btn border">Register</a>
+                {% endif %}
+            
+        </div>
+    </div>
+</div> {% endcomment %}
+<!-- Topbar End -->

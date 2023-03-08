@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}
+
+{% block block_content %}
+<h1> Employee Information</h1>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Device</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        <th scope="col">Country</th>
+        <th scope="col">City</th>
+        <th scope="col">Zipcode</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Given Date</th>
+        <th scope="col">Return Date</th>
+        <th scope="col">Paid Status</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for employee in Employee_Info %}
+      <tr>
+       
+        <td>
+             {% for device in employee.device.all %}
+            <ul>
+                <li>{{device}}</li>
+            </ul>
+            {% endfor %} 
+            {% comment %} {{employee.device.name}} {% endcomment %}
+        </td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.address}}</td>
+        <td>{{employee.country}}</td>
+        <td>{{employee.city}}</td>
+        <td>{{employee.zipcode}}</td>
+        <td>{{employee.phone}}</td>
+        <td>{{employee.given_date}}</td>
+        <td>{{employee.return_date}}</td>
+        <td>{{employee.is_paid}}</td>
+      </tr>
+      {% endfor %}
+     
+    </tbody>
+  </table>
+{% endblock block_content %}
+

@@ -4,9 +4,11 @@
 <form method="POST">
     {% csrf_token %} 
     {% include 'base/alert.html' %} 
-    {% for form in forms %}
+    {% for form in device_feedback_form %}
     <div class="form-group">{{form}}</div>
     {% endfor %}
+
+    <div class="my-3">{{Payment_Form.as_p}}</div>
 
     <!-- form-group form-check .// -->
     <div class="form-group">

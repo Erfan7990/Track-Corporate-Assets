@@ -20,8 +20,13 @@ class EmployeeModelForm(forms.ModelForm):
         fields = ('__all__')
         exclude = ('user','is_paid',)
 
-class DeviceReturnForm(forms.ModelForm):
+class DeviceFeedBackForm(forms.ModelForm):
     
     class Meta:
-        model = Device_Return
+        model = Device_Feedback
+        fields = ('__all__')
+        
+class PaymentForm(forms.ModelForm):
+    class Meta:
+        model = Payment
         fields = ('__all__')

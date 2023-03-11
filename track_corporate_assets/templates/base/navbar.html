@@ -4,6 +4,8 @@
         <li><a href=" {% url 'index' %}">Home</a></li>
         <li><a href="{% url 'add_employee' %}">Add Employee</a></li>
         <li><a href="{% url 'add_devices' %}">Add Devices</a></li>
+        <li><a href="{% url 'employee' %}">Feedback</a></li>
+
         {% if request.user.is_authenticated %}
             <li><a href="#">{{request.user}}</a></li>
             <li><a href="{% url 'logout' %}">Logout</a></li>
